@@ -2,10 +2,22 @@ import { useState } from "react";
 import data from "./data.json";
 
 const searchTeamData=(searchText)=>{
+    //With out filter bindling returning some random data
    //return [data[0]];
-   return data.filter((team)=>
-   team.name.toLowerCase().includes(searchText.toLowerCase())
-   );
+
+   //Only filtering for one field 
+      //    return data.filter((team)=>
+      //    team.name.toLowerCase().includes(searchText.toLowerCase())
+      //    );
+    
+    //filtering data for multiple fields
+      const searchTextToLowerCase=searchText.toLowerCase();
+      return data.filter((team)=>
+         (team.name.toLowerCase().includes(searchTextToLowerCase)
+             || team.address.toLowerCase().includes(searchTextToLowerCase)
+                 || team.company.toLowerCase().includes(searchTextToLowerCase)
+                     || team.designation.toLowerCase().includes(searchTextToLowerCase))
+      );
 };
 
 const SearchComponent =({setFilteredData})=>{
