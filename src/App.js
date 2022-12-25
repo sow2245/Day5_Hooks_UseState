@@ -13,10 +13,23 @@ const HeadingComponent=()=>(
 </div>
 );
 
+
+
 const CardContainer=({filteredData})=>
     filteredData.map((teamMembers)=>(
         <CardComponent teamMembers={teamMembers} key={teamMembers.id}/>
     ));
+
+//Hard coding the data to bind UI
+// const CardContainer=({filteredData})=>
+//     [data[0]].map((teamMembers)=>(
+//         <CardComponent teamMembers={teamMembers} key={teamMembers.id}/>
+//     ));
+
+// const CardContainer=({filteredData})=>
+//     [data[0],data[1]].map((teamMembers)=>(
+//         <CardComponent teamMembers={teamMembers} key={teamMembers.id}/>
+//     ));
 
 const BodyComponent=()=>{
     const [filteredData,setFilteredData]=useState(data);
